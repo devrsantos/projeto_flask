@@ -1,12 +1,13 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from app.config import SQLALCHEMY_DATABASE_URI
 
 db = SQLAlchemy()
 
 def create_app():
     app = Flask(__name__)
     
+    from config import SQLALCHEMY_DATABASE_URI
+      
     app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
     
     db.init_app(app)
