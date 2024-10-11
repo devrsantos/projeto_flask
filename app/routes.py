@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request
-from .models import User
+from app.models import User
 from app import db
 
 bd = Blueprint('routes', __name__, template_folder='templates')
