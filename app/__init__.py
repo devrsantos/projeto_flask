@@ -12,8 +12,8 @@ def create_app():
     
     db.init_app(app)
 
-    from .routes import bd as routes_bd
-    app.register_blueprint(routes_bd)
+    from .routes import bp as routes_bp
+    app.register_blueprint(routes_bp)
 
     with app.app_context():
         db.create_all()
