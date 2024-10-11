@@ -13,7 +13,7 @@ def cadastrar_usuario():
         nome = request.form['nome']
         user_repository.criar_usuario(nome)
         return redirect(url_for('routes.listar_usuarios'))
-    return render_template('index.html')
+    return render_template('cadastrar.html')
 
 @bp.route('/listar')
 def listar_usuarios():
@@ -28,3 +28,22 @@ def obter_usuario_por_id(id):
     else:
         flash('Usuario não encontrado.', 'danger')
         return redirect(url_for('routes.listar_usuarios'))
+    
+@bp.route('/editar/<int:id>', methods=['GET', 'POST'])
+def editar_usuario(id):
+    usuario = user_repository.obter_usuario_por_id(id)
+    if request.method == 'POST':
+        nome = request.form['nome']
+        user_repository.atualizar_usuario(usuario, nome)
+        return redirect(url_for('routes.listar_usuarios'))
+    return render_template('editar.html', usuario=usuario)
+
+@bp.route('/excluir/<int:id>')
+def excluir_usuario(id):
+    usuario = user_repository.obter_usuario_por_id(id)
+    if usuario:
+        user_repository.excluir_usuario(usuario)
+        flash('Usuário excluído com sucesso!', 'success')
+    else:
+        flash('Usuário não encontrado.', 'danger')
+    return redirect(url_for('routes.listar_usuarios'))

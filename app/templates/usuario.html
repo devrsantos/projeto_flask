@@ -1,6 +1,23 @@
-<h2>Usuário</h2>
-
-<p>ID: {{ usuario.id }}</p>
-<p>Nome: {{ usuario.nome }}</p>
-
-<a href="{{ url_for('routes.listar_usuarios') }}">Voltar para a lista de usuários</a>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Usuário</title>
+    <link rel="stylesheet" href="{{  
+ url_for('static', filename='css/bootstrap.min.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Detalhes do Usuário</h1>
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5 class="card-title">ID: {{ usuario.id }}</h5>
+                <p class="card-text">Nome: {{ usuario.nome }}</p>
+            </div>
+        </div>
+        <a href="{{ url_for('routes.listar_usuarios') }}" class="btn btn-secondary mt-4">Voltar para a lista de usuários</a>
+    </div>
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+</body>
+</html>
