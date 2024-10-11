@@ -1,6 +1,6 @@
 <h1>Lista de Usuários</h1>
 <ul>
   {% for usuario in usuarios %}
-    <li>{{ usuario.nome }}</li>
+    <li><a href="{{ url_for('routes.obter_usuario_por_id', id=usuario.id) }}">{{ usuario.nome }}</a></li>
   {% endfor %}
 </ul>
