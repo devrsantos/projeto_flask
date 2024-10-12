@@ -6,6 +6,9 @@ Este projeto demonstra como criar uma aplicação web com Flask, usando rotas, t
 
 * Cadastro de usuários
 * Listagem de usuários
+* Visualização de detalhes de um usuário
+* Edição de usuários
+* Exclusão de usuários
 
 ## Como executar
 
@@ -16,11 +19,16 @@ Este projeto demonstra como criar uma aplicação web com Flask, usando rotas, t
 
 5. Execute a aplicação: `flask run --app meu_projeto:create_app`
 
+## Testes
+
+* Os testes unitários estão no diretório `tests`.
+* Para executar os testes, use o comando `python -m unittest discover tests`.
+
 ## Próximos passos
 
-* Implementar edição e exclusão de usuários
 * Adicionar autenticação de usuários
-* Criar testes unitários
+* Implementar outras funcionalidades
+* Criar testes de integração
 * Deployar a aplicação
 
 ## Contribuições
